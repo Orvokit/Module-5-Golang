@@ -1,0 +1,68 @@
+//Ну и какой же компьютер без игр? Давайте научим его играть в «Угадай число». Пользователь загадывает число от 1 до 10 (включительно). Программа пытается это число угадать, для этого она выводит число, а пользователь должен ответить: угадала программа, больше загаданное число или меньше.
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+  var answer, more bool
+	fmt.Println("Загадайте число от 1 до 10.")
+  fmt.Println("Ваше число 5? (отвечайте true или false)")
+  fmt.Scan(&answer)
+
+  if !answer { //число не 5
+    fmt.Println("Ваше число больше этого числа? (отвечайте true или false)")
+    fmt.Scan(&more)
+    if more { //число больше 5
+      fmt.Println("Ваше число 6? (отвечайте true или false)")
+      fmt.Scan(&answer)
+      if !answer {
+        fmt.Println("Ваше число 7? (отвечайте true или false)")
+        fmt.Scan(&answer)
+        if !answer {
+          fmt.Println("Ваше число 8? (отвечайте true или false)")
+          fmt.Scan(&answer)
+          if !answer {
+            fmt.Println("Ваше число 9? (отвечайте true или false)")
+            fmt.Scan(&answer)
+            if !answer {
+              fmt.Println("Ваше число 10.")
+            } else {
+              fmt.Println("Ваше число 9.")
+            }
+          } else {
+            fmt.Println("Ваше число 8.")
+          }
+        } else {
+          fmt.Println("Ваше число 7.")
+        }        
+      } else {
+        fmt.Println("Ваше число 6.")
+      }
+    } else { //число меньше 5
+      fmt.Println("Ваше число 4? (отвечайте true или false)")
+      fmt.Scan(&answer)
+      if !answer {
+        fmt.Println("Ваше число 3? (отвечайте true или false)")
+        fmt.Scan(&answer)
+        if !answer {
+          fmt.Println("Ваше число 2? (отвечайте true или false)")
+          fmt.Scan(&answer)
+          if !answer {
+            fmt.Println("Ваше число 1.")
+          } else {
+            fmt.Println("Ваше число 2.")
+          }
+        } else {
+          fmt.Println("Ваше число 3.")
+        }
+      } else {
+        fmt.Println("Ваше число 4.")
+      }
+    } 
+  } else {
+    fmt.Println("Ваше число 5.")
+  }
+}
