@@ -1,0 +1,33 @@
+//Программное обеспечение банкоматов постоянно решает задачу, как имеющимися купюрами сформировать сумму, введённую пользователем. Попробуйте решить похожую задачу и определить, сможет ли пользователь заплатить за товар без сдачи или нет. Для этого он будет вводить стоимость товара и номиналы трёх монет. 
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+  var price, denomination1, denomination2, denomination3 int 
+	fmt.Print("Введите стоимость товара: ")
+  fmt.Scan(&price)
+  fmt.Print("Введите номинал первой монеты, которая у вас есть: ")
+  fmt.Scan(&denomination1)
+  fmt.Print("Введите номинал второй монеты, которая у вас есть: ")
+  fmt.Scan(&denomination2)
+  fmt.Print("Введите номинал третьей монеты, которая у вас есть: ")
+  fmt.Scan(&denomination3)
+
+  if denomination1 + denomination2 + denomination3 >= price {
+    if denomination1 == price || denomination2 == price || denomination3 == price {
+      fmt.Println("Вы можете оплатить товар одной из своих монет.")
+    } else if denomination1 + denomination2 == price || denomination1 + denomination3 == price || denomination2 + denomination3 == price {
+      fmt.Println("Вы можете оплатить товар двумя из своих монет.")
+    } else if denomination1 + denomination2 + denomination3 == price {
+      fmt.Println("Вы можете оплатить товар всеми своими монетами.")
+    } else {
+      fmt.Println("Не получится оплатить товар без сдачи.")
+    }
+  } else {
+    fmt.Println("У вас не хватает денег :(.")
+  }
+}
